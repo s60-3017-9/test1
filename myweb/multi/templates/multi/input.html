@@ -5,10 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-
-    <h1>{{number}}            {{number}}            {{number}}</h1>
+    <input type="number" name="num_input" /><br>
+    <input type="submit" name="submit" value="Submit" />
+    {% if list_number %}
     {% for i in list_number %}
         <h1>{{number}}*{{ forloop.counter }}  = {{i}}</h1><br>
     {% endfor %}
+    {% endif %}
+
 </body>
 </html>

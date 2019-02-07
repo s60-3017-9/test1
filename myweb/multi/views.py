@@ -3,12 +3,21 @@ from django.shortcuts import render
 # Create your views here.
 def show(request,number):
     s=[]
-    n=[]
     for i in range(1,13):
         s.append(number*i)
-        n.append(i)
     # n = str(number)*3
-    context={'number':number,'list_number':s,'list_n':n}
+    context={'number':number,'list_number':s}
 
 
     return render(request,'multi/show.html',context)
+
+def input(request):
+    return render(request, 'multi/input.html')
+
+def show_input(request):
+    number=request.POST['num_input']
+    s=[]
+    for i in range(1,13):
+        s.append(number*i)
+    context = {'number': number, 'list_number': s}
+    return render(request, 'multi/input.html', context)

@@ -12,12 +12,20 @@ def show(request,number):
     return render(request,'multi/show.html',context)
 
 def input(request):
-    return render(request, 'multi/input.html')
+    try:
+        number=int(request.POST['num_input'])
+        s = []
+        for i in range(1, 13):
+            s.append(number * i)
+        context = {'number': number, 'list_number': s}
+        return render(request, 'multi/input.html', context)
+    except (KeyError,ValueError):
+        return render(request, 'multi/input.html')
 
-def show_input(request):
-    number=request.POST['num_input']
-    s=[]
-    for i in range(1,13):
-        s.append(number*i)
-    context = {'number': number, 'list_number': s}
-    return render(request, 'multi/input.html', context)
+# def show_input(request):
+#     number=request.POST['num_input']
+#     s=[]
+#     for i in range(1,13):
+#         s.append(number*i)
+#     context = {'number': number, 'list_number': s}
+#     return render(request, 'multi/input.html', context)

@@ -5,13 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <input type="number" name="num_input" /><br>
+<form action="{% url 'multiply:input' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="num_input" value=""/><br>
     <input type="submit" name="submit" value="Submit" />
     {% if list_number %}
     {% for i in list_number %}
-        <h1>{{number}}*{{ forloop.counter }}  = {{i}}</h1><br>
+        <h1>{{number}}*{{ forloop.counter }}  = {{i}}</h1>
     {% endfor %}
     {% endif %}
-
+</form>
 </body>
 </html>

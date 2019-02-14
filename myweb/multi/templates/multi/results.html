@@ -10,13 +10,13 @@
 <ul>
 <table border="5" bordercolor="blue" width="100%" height="10%" bgcolor="yellow">
     <tr>
-    <th>NO.</th>
-    <th>Count</th>
+        <th><h1>NO.</h1></th>
+        <th><h1>Count</h1></th>
   </tr>
     {% for i in number_list %}
-    <tr>
-    <td>{{ i.number_text }}</td>
-    <td> {{ i.count }} </td>
+    <tr align="center">
+        <td><h3>{{ i.number_text }}</h3></td>
+        <td> <h3>{{ i.count }}</h3> </td>
     </tr>
     {% endfor %}
 </table>

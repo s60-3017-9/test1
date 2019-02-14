@@ -11,7 +11,7 @@ urlpatterns = [
 
     path('results-by-count/',views.results_by_count,name='results_count'),
 
-    # path('results-by-num/',views.results_by_num,name='results_num')
+    path('results-by-num/',views.results_by_num,name='results_num')
 
 
 

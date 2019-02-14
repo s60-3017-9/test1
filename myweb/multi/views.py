@@ -49,7 +49,7 @@ def results_by_count(request):
     return render(request, 'multi/results.html', context)
 
 def results_by_num(request):
-    number_list = number.objects.order_by('-number_int')
+    number_list = number.objects.order_by('number_int')
     context={'number_list':number_list}
     return render(request, 'multi/results.html', context)
 

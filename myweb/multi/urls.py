@@ -4,7 +4,9 @@ from . import views
 app_name = 'multiply'
 urlpatterns = [
     path('<int:number>/',views.show,name='show'),
+
     path('input/',views.input,name='input'),
+
 
 
 ]

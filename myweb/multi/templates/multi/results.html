@@ -5,10 +5,22 @@
     <title>Title</title>
 </head>
 <body>
+<a href="{% url 'multiply:results_count' %}">results_count</a><br>
+<a href="{% url 'multiply:results_num' %}">results_number</a><br>
 <ul>
-{% for i in number_list %}
-    <li>{{ i.number_text }} -- {{ i.count }} </li>
-{% endfor %}
+<table border="5" bordercolor="blue" width="100%" height="10%" bgcolor="yellow">
+    <tr>
+    <th>NO.</th>
+    <th>Count</th>
+  </tr>
+    {% for i in number_list %}
+    <tr>
+    <td>{{ i.number_text }}</td>
+    <td> {{ i.count }} </td>
+    </tr>
+    {% endfor %}
+</table>
+
 </ul>
 </body>
 </html>

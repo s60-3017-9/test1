@@ -20,7 +20,7 @@ def input(request):
             s.append(num * i)
         context = {'number': num, 'list_number': s}
         if len(number.objects.filter(number_text=str_num))==0:
-            number.objects.create(number_text=str_num)
+            number.objects.create(number_text=str_num,number_int=num)
         else:
             q=number.objects.get(number_text=str_num)
             q.count+=1
@@ -40,6 +40,16 @@ def input(request):
 
 def results(request):
     number_list = number.objects.all
+    context={'number_list':number_list}
+    return render(request, 'multi/results.html', context)
+
+def results_by_count(request):
+    number_list = number.objects.order_by('-count')
+    context={'number_list':number_list}
+    return render(request, 'multi/results.html', context)
+
+def results_by_num(request):
+    number_list = number.objects.order_by('-number_int')
     context={'number_list':number_list}
     return render(request, 'multi/results.html', context)
 

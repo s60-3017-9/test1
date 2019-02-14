@@ -22,8 +22,8 @@ def input(request):
         if len(number.objects.filter(number_text=str_num))==0:
             number.objects.create(number_text=str_num)
         else:
-            q=number.objects.get(number_text=str_num).count
-            q+=1
+            q=number.objects.get(number_text=str_num)
+            q.count+=1
             q.save()
 
         return render(request, 'multi/input.html', context)
@@ -37,3 +37,9 @@ def input(request):
 #         s.append(number*i)
 #     context = {'number': number, 'list_number': s}
 #     return render(request, 'multi/input.html', context)
+
+def results(request):
+    number_list = number.objects.all
+    context={'number_list':number_list}
+    return render(request, 'multi/results.html', context)
+
